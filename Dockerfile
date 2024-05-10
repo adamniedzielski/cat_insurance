@@ -1,4 +1,4 @@
-FROM ruby:3.2.2-alpine3.18
+FROM ruby:3.3.1-alpine
 RUN apk add build-base postgresql-dev tzdata git bash
 WORKDIR /app
 ENV BUNDLE_PATH=/bundle \
