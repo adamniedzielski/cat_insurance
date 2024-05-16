@@ -1,3 +1,14 @@
 <p>
     <%=  @insurance.name %>
 <p>
+
+<h2>Sign up for this insurance</h2>
+
+<%= form_with model: [@insurance, @subscription] do |form| %>
+  <div>
+    <%= form.label :starts_on %>
+    <%= form.datetime_field :starts_on %>
+  </div>
+
+  <%= form.submit "Pay #{@insurance.price_cents}" %>
+<% end %>

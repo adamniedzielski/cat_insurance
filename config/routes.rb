@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
-  resources 'insurances', only: [:index, :show]
+  resources 'insurances', only: [:index, :show] do
+    resources :subscriptions, only: [:create]
+  end
 
   namespace :admin do
     resources :insurances, only: [:new, :create]

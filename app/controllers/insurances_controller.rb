@@ -5,6 +5,7 @@ class InsurancesController < ApplicationController
 
   def show
     @insurance = Insurance.find(params.fetch(:id))
+    @subscription = Subscription.new(insurance: @insurance)
   end
 
 end
