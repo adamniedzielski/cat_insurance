@@ -1,6 +1,10 @@
 <h1>Insurances</h1>
 <p>
-    <% @insurances.each do |insurance| %>
-        <%= insurance.name %>
-    <% end %>
+    <ul>
+        <% @insurances.each do |insurance| %>
+            <li>
+                <%= insurance.name %>
+            </li>
+        <% end %>
+    </ul>
 </p>
