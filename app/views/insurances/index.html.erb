@@ -3,7 +3,7 @@
     <ul>
         <% @insurances.each do |insurance| %>
             <li>
-                <%= insurance.name %>
+                <%= link_to insurance.name, insurance_path(insurance) %>
             </li>
         <% end %>
     </ul>
