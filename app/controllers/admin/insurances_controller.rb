@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Admin::InsurancesController < ApplicationController
   def index
     @insurances = Insurance.all
@@ -14,7 +16,7 @@ class Admin::InsurancesController < ApplicationController
   def create
     @insurance = Insurance.new(insurance_params)
     if @insurance.save
-      redirect_to [:insurances, @insurances], notice: 'Insurance was successfully created.'
+      redirect_to [:insurances, @insurances], notice: t("admin.insurances.created")
     else
       render :new
     end

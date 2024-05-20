@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class InsurancesController < ApplicationController
   def index
     @insurances = Insurance.all
@@ -7,5 +9,4 @@ class InsurancesController < ApplicationController
     @insurance = Insurance.find(params.fetch(:id))
     @subscription = Subscription.new(insurance: @insurance)
   end
-
 end
