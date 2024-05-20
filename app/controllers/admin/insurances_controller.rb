@@ -29,13 +29,13 @@ class Admin::InsurancesController < ApplicationController
   def destroy
     @insurance = Insurance.find(params[:id])
     @insurance.destroy
-    redirect_to admin_insurances_path, notice: 'Insurance was successfully deleted.'
+    redirect_to admin_insurances_path, notice: t("admin.insurances.deleted")
   end
 
   def update
     @insurance = Insurance.find(params[:id])
     if @insurance.update(insurance_params)
-      redirect_to admin_insurances_path, notice: 'Insurance was successfully updated.'
+      redirect_to admin_insurances_path, notice: t("admin.insurances.updated")
     else
       render :edit
     end
