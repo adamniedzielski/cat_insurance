@@ -1,15 +1,2 @@
 <h1>New Insurance</h1>
-
-<%= form_with model: [:admin, @insurance], local: true do |form| %>
-  <div>
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
-
-  <div>
-    <%= form.label :price_cents %>
-    <%= form.text_field :price_cents %>
-  </div>
-
-  <%= form.submit "Create Insurance" %>
-<% end %>
+<%= render 'form', insurance: @insurance %>

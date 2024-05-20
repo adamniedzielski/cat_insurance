@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
   devise_for :users
   resources 'insurances', only: [:index, :show] do
-    resources :subscriptions, only: [:new, :create]
+    resources :subscriptions, only: [:create]
   end
 
   namespace :admin do
-    resources :insurances, only: [:index, :new, :create, :edit, :update, :destroy, :show]
+    resources :insurances
   end
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
