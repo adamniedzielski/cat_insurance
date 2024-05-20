@@ -29,3 +29,8 @@
 
 en:
   hello: "Hello world"
+  admin:
+    insurances:
+      created: Insurance was successfully created.
+  subscriptions:
+      created: Signed up for insurance
