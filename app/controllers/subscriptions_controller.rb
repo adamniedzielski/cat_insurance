@@ -9,7 +9,7 @@ class SubscriptionsController < ApplicationController
     if @subscription.save
       redirect_to insurances_url, notice: t("subscriptions.created")
     else
-      render 'insurances/show'
+      render "insurances/show"
     end
   end
 
