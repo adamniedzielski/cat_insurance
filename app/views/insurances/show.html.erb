@@ -1,6 +1,6 @@
 <p>
-    <%=  @insurance.name %>
-<p>
+  <%= @insurance.name %>
+</p>
 
 <h2>Sign up for this insurance</h2>
 
@@ -8,6 +8,11 @@
   <div>
     <%= form.label :starts_on %>
     <%= form.datetime_field :starts_on %>
+    <% if @subscription.errors.any? %>
+      <div class="error">
+        <%= @subscription.errors.full_messages.join(", ") %>
+      </div>
+    <% end %>
   </div>
 
   <%= form.submit "Pay #{@insurance.price_cents}" %>

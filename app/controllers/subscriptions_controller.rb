@@ -2,11 +2,15 @@
 
 class SubscriptionsController < ApplicationController
   def create
-    @subscription = Subscription.new(insurance_params)
+    @insurance = Insurance.find(params[:insurance_id])
+    @subscription = @insurance.subscriptions.new(insurance_params)
     @subscription.user = current_user
-    @subscription.insurance_id = params.fetch(:insurance_id)
-    @subscription.save!
-    redirect_to insurances_url, notice: t("subscriptions.created")
+
+    if @subscription.save
+      redirect_to insurances_url, notice: t("subscriptions.created")
+    else
+      render "insurances/show"
+    end
   end
 
   private
