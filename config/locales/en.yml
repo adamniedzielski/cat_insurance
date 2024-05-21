@@ -32,5 +32,7 @@ en:
   admin:
     insurances:
       created: Insurance was successfully created.
+      deleted: Insurance was successfully deleted.
+      updated: Insurance was successfully updated.
   subscriptions:
       created: Signed up for insurance

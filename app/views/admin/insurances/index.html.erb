@@ -1,0 +1,12 @@
+<h1>Admin Insurances</h1>
+<p>
+    <ul>
+        <% @insurances.each do |insurance| %>
+            <li>
+                <%= insurance.name %>
+                <%= link_to 'Edit', edit_admin_insurance_path(insurance) %>
+                <%= button_to 'Delete', admin_insurance_path(insurance), method: :delete %>
+            </li>
+        <% end %>
+    </ul>
+</p>
