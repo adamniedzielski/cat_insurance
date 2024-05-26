@@ -9,6 +9,14 @@
     <%= form.number_field :price_cents %>
   </div>
 
+  <% if @insurance.errors.any? %>
+    <ul>
+      <% @insurance.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
   <div class="actions">
     <%= form.submit %>
   </div>
