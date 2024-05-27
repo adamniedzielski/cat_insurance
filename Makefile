@@ -15,3 +15,6 @@ bash:
 
 server:
 	docker-compose run --rm --service-ports app
+
+sidekiq:
+	docker-compose run --rm --service-ports sidekiq

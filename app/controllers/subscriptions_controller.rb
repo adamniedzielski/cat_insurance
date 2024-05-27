@@ -7,6 +7,7 @@ class SubscriptionsController < ApplicationController
     @subscription.user = current_user
 
     if @subscription.save
+      SubscribeJob.perform_async(@subscription.id)
       redirect_to insurances_url, notice: t("subscriptions.created")
     else
       render "insurances/show"
