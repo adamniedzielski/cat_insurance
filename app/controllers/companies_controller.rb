@@ -28,7 +28,7 @@ class CompaniesController < ApplicationController
 
   def update
     @company = Company.find(params[:id])
-    if @Company.update(company_params)
+    if @company.update(company_params)
       redirect_to companies_path, notice: t("company.updated")
     else
       render :edit
