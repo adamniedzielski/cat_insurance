@@ -10,6 +10,10 @@ Rails.application.routes.draw do
     resources :insurances
   end
 
+  namespace :api do
+    resources :insurances, only: [:index]
+  end
+
   resources :companies
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
