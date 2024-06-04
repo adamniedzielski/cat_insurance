@@ -1,0 +1,22 @@
+<%= form_with(model: company) do |form| %>  
+    <div class="field">
+      <%= form.label :name %>
+      <%= form.text_field :name %>
+    </div>
+  
+    <div class="field">
+      <% if @company.logo.attached? %>
+        <p>
+          <strong>Logo:</strong>
+          <%= image_tag url_for(@company.logo) %>
+        </p>
+      <% end %>
+      <%= form.label :logo %>
+      <%= form.file_field :logo %>
+    </div>
+  
+    <div class="actions">
+      <%= form.submit %>
+    </div>
+  <% end %>
+  

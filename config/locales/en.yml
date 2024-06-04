@@ -37,3 +37,7 @@ en:
   subscriptions:
       created: Signed up for insurance
       success_mailer_header: Welcome to My Awesome Site
+  company:
+      created: Company was successfully created.
+      deleted: Company was successfully deleted.
+      updated: Company was successfully updated.

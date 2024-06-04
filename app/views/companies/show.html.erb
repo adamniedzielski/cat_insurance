@@ -1,0 +1,11 @@
+<p>
+  <strong>Name:</strong>
+  <%= @company.name %>
+</p>
+
+<% if @company.logo.attached? %>
+  <p>
+    <strong>Logo:</strong>
+    <%= image_tag url_for(@company.logo) %>
+  </p>
+<% end %>
