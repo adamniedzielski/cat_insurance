@@ -1,0 +1,10 @@
+<h1>Companies</h1>
+<ul>
+    <% @companies.each do |company| %>
+        <li>
+            <%= company.name %>
+            <%= link_to 'Edit', edit_company_path(company) %>
+            <%= button_to 'Delete', company_path(company), method: :delete %>
+        </li>
+    <% end %>
+</ul>
