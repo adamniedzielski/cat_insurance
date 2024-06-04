@@ -45,7 +45,7 @@ module Admin
     private
 
     def insurance_params
-      params.require(:insurance).permit(:name, :price_cents)
+      params.require(:insurance).permit(:name, :price_cents, :company_id)
     end
   end
 end
