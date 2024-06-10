@@ -10,7 +10,7 @@
 <%= form_with model: [@insurance, @subscription] do |form| %>
   <div>
     <%= form.label :starts_on %>
-    <%= form.datetime_field :starts_on %>
+    <%= form.date_field :starts_on %>
     <% if @subscription.errors.any? %>
       <div class="error">
         <%= @subscription.errors.full_messages.join(", ") %>
