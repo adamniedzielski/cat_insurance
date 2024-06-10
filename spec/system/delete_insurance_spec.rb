@@ -8,7 +8,7 @@ RSpec.describe "Delete insurance", system: true do
 
   it "displays success message" do
     visit admin_insurances_path
-    click_on "Delete", match: :first
+    click_on "Delete"
 
     expect(page).to have_content("Insurance was successfully deleted.")
   end
