@@ -9,6 +9,9 @@ test:
 
 rubocop:
 	docker-compose run --rm app bundle exec rubocop
+	
+rubocop-autocomplete:
+	docker-compose run --rm app bundle exec rubocop -A	
 
 bash:
 	docker-compose run --rm app bash
