@@ -9,6 +9,11 @@
     <%= form.number_field :price_cents %>
   </div>
 
+  <div class="field">
+    <%= form.label :company_id %>
+    <%= collection_select(:insurance, :company_id, Company.all, :id, :name) %>
+  </div>
+
   <% if @insurance.errors.any? %>
     <ul>
       <% @insurance.errors.full_messages.each do |message| %>
