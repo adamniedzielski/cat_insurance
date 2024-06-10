@@ -33,7 +33,8 @@ en:
     insurances:
       created: Insurance was successfully created.
       deleted: Insurance was successfully deleted.
-      updated: Insurance was successfully updated.
+      updated: Insurance was successfully updated.  
+    unauthorized: You don't have access to the admin panel.
   subscriptions:
       created: Signed up for insurance
       success_mailer_header: Welcome to My Awesome Site
@@ -41,3 +42,5 @@ en:
       created: Company was successfully created.
       deleted: Company was successfully deleted.
       updated: Company was successfully updated.
+      
+       

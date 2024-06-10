@@ -4,6 +4,10 @@ require "rails_helper"
 
 RSpec.describe "Create insurance", system: true do
   let!(:company) { Company.create!(name: "Test Company") }
+  let!(:user) { User.create!(email: "test@gmail.com", password: "123456", is_admin: true) }
+  before do
+    login_as user, scope: :user
+  end
 
   it "displays success message" do
     visit new_admin_insurance_path
