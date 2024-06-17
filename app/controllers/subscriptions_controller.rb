@@ -1,6 +1,13 @@
 # frozen_string_literal: true
 
 class SubscriptionsController < ApplicationController
+  before_action :authenticate_user!
+
+  def index
+    @user = current_user
+    @subscriptions = @user.subscriptions.includes(:insurance)
+  end
+
   def create
     @insurance = Insurance.find(params[:insurance_id])
     @subscription = @insurance.subscriptions.new(insurance_params)
