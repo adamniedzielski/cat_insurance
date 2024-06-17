@@ -6,6 +6,9 @@ class Subscription < ApplicationRecord
 
   validates :starts_on, presence: true
   validate :starts_on_cannot_be_in_the_past
+  validates :insurance_id, uniqueness: {
+    scope: :user_id
+  }
 
   private
 
