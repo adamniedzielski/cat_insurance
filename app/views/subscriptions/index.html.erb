@@ -2,5 +2,6 @@
 <% @subscriptions.each do |subscription| %>
   <div>
     <%= subscription.insurance.name %> - <%= subscription.starts_on %>
+    <%= link_to 'New Claim', new_subscription_claim_path(subscription) %>
   </div>
 <% end %>

@@ -3,6 +3,7 @@
 class Subscription < ApplicationRecord
   belongs_to :user
   belongs_to :insurance
+  has_many :claims, dependent: :destroy
 
   validates :starts_on, presence: true
   validate :starts_on_cannot_be_in_the_past
