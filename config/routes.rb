@@ -16,7 +16,9 @@ Rails.application.routes.draw do
 
   resources :companies
 
-  resources :subscriptions, only: %i[index]
+  resources :subscriptions, only: %i[index] do
+    resources :claims, only: %i[new create]
+  end
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

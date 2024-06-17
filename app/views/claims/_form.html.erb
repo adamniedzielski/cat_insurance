@@ -1,0 +1,23 @@
+<%= form_for(@claim, url:subscription_claims_path) do |form| %>  
+    <div class="field">
+      <%= form.label :reason %>
+      <%= form.text_field :reason %>
+    </div>
+  
+    <div class="field">
+      <%= form.label :price_cents %>
+      <%= form.text_field :price_cents %>
+    </div>
+
+    <% if @claim.errors.any? %>
+        <ul>
+            <% @claim.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+            <% end %>
+        </ul>
+    <% end %>
+    <div class="actions">
+      <%= form.submit %>
+    </div>
+  <% end %>
+  
