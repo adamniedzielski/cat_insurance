@@ -1,0 +1,9 @@
+<h1>My claims</h1>
+
+<ul>
+  <% @claims.each do |claim| %>
+    <li>
+      <%= claim.subscription.insurance.name %> - <%= claim.price_cents %>
+    </li>
+  <% end %>
+</ul>
