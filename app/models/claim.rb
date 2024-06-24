@@ -5,7 +5,7 @@ class Claim < ApplicationRecord
 
   STATUSES = {
     "new" => ["processing"],
-    "processing" => ["resolved", "rejected"],
+    "processing" => %w[resolved rejected],
     "resolved" => [],
     "rejected" => []
   }.freeze
