@@ -1,0 +1,28 @@
+<%= form_for(@discount_code, url: admin_discount_codes_path) do |form| %>  
+    <div class="field">
+      <%= form.label :code %>
+      <%= form.text_field :code %>
+    </div>
+  
+    <div class="field">
+      <%= form.label :discount_percentage %>
+      <%= form.text_field :discount_percentage %>
+    </div>
+
+    <div>
+        <%= form.label :insurance_id %>
+        <%= form.select :insurance_id, options_for_select(@insurances.map{|insurance| [insurance.name,insurance.id]}) %>
+    </div>
+
+    <% if @discount_code.errors.any? %>
+        <ul>
+            <% @discount_code.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+            <% end %>
+        </ul>
+    <% end %>
+    <div class="actions">
+      <%= form.submit %>
+    </div>
+  <% end %>
+  

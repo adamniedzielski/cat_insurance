@@ -40,6 +40,8 @@ en:
       success_mailer_header: Welcome to My Awesome Site
       create_claim: Claim was successfully created.
       update_claim: Claim status updated successfully.
+  discount_code:
+      create: Discount code was successfully created.
   company:
       created: Company was successfully created.
       deleted: Company was successfully deleted.

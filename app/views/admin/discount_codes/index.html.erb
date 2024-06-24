@@ -1,0 +1,9 @@
+<h1>Dicount Codes</h1>
+
+<ul>
+  <% @discount_codes.each do |discount_code| %>
+    <li>
+      <%= discount_code.code %> -  <%= discount_code.discount_percentage %>% -  <%= discount_code.insurance.name %>
+    </li>
+  <% end %>
+</ul>

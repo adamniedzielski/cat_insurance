@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :insurances
     resources :claims, only: %i[index edit update]
+    resources :discount_codes, only: %i[index new create]
   end
 
   namespace :api do
