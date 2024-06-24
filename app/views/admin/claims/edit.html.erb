@@ -3,7 +3,7 @@
 <%= form_with model: [:admin, @claim] do |form| %>
   <div>
     <%= form.label :status %>
-    <%= form.select :status, options_for_select(Claim::STATUSES, @claim.status) %>
+    <%= form.select :status, options_for_select(Claim::STATUSES[@claim.status], @claim.status) %>
   </div>
 
   <div>
