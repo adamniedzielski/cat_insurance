@@ -3,9 +3,14 @@
 class Claim < ApplicationRecord
   belongs_to :subscription
 
-  STATUSES = %w[new processing resolved rejected].freeze
+  STATUSES = {
+    "new" => ["processing"],
+    "processing" => ["resolved", "rejected"],
+    "resolved" => [],
+    "rejected" => []
+  }.freeze
 
-  validates :status, inclusion: { in: STATUSES }
+  validates :status, inclusion: { in: STATUSES.keys }
 
   after_initialize :set_default_status, if: :new_record?
 
