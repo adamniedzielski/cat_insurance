@@ -1,0 +1,27 @@
+<h1>Claims</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Insurance</th>
+      <th>Subscription</th>
+      <th>Reason</th>
+      <th>Price</th>
+      <th>Status</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @claims.each do |claim| %>
+      <tr>
+        <td><%= claim.subscription.insurance.name %></td>
+        <td><%= claim.subscription.id %></td>
+        <td><%= claim.reason %></td>
+        <td><%= claim.price_cents %></td>
+        <td><%= claim.status %></td>
+        <td><%= link_to 'Edit', edit_admin_claim_path(claim) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
