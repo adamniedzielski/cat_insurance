@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_06_24_164347) do
+ActiveRecord::Schema[7.1].define(version: 2024_06_30_175519) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -83,6 +83,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_24_164347) do
     t.datetime "starts_on", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "discount_code_id"
+    t.index ["discount_code_id"], name: "index_subscriptions_on_discount_code_id"
     t.index ["insurance_id"], name: "index_subscriptions_on_insurance_id"
     t.index ["user_id", "insurance_id"], name: "index_subscriptions_on_user_id_and_insurance_id", unique: true
     t.index ["user_id"], name: "index_subscriptions_on_user_id"
@@ -105,6 +107,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_24_164347) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "claims", "subscriptions"
   add_foreign_key "discount_codes", "insurances"
+  add_foreign_key "subscriptions", "discount_codes"
   add_foreign_key "subscriptions", "insurances"
   add_foreign_key "subscriptions", "users"
 end

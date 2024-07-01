@@ -42,6 +42,7 @@ en:
       update_claim: Claim status updated successfully.
   discount_code:
       create: Discount code was successfully created.
+  invalid_discount_code: Invalid discount code.
   company:
       created: Company was successfully created.
       deleted: Company was successfully deleted.

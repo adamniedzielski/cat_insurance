@@ -1,7 +1,12 @@
 <h1>Your Subscriptions</h1>
 <% @subscriptions.each do |subscription| %>
   <div>
-    <%= subscription.insurance.name %> - <%= subscription.starts_on %>
+    <%= subscription.insurance.name %> - <%= subscription.starts_on %> - 
+    <% if subscription.discount_code_id.present? %>
+      <%= "#{subscription.discount_code.code} (#{subscription.discount_code.discount_percentage}%) Discount" %>
+    <% else %>
+      No Discount Applied
+    <% end %>
     <%= link_to 'New Claim', new_subscription_claim_path(subscription) %>
   </div>
 <% end %>
