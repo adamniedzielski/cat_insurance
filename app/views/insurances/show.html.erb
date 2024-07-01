@@ -11,6 +11,12 @@
   <div>
     <%= form.label :starts_on %>
     <%= form.date_field :starts_on %>
+
+    <div>
+      <%= form.label :discount_code_value %>
+      <%= form.text_field :discount_code_value %>
+    <div>
+
     <% if @subscription.errors.any? %>
       <div class="error">
         <%= @subscription.errors.full_messages.join(", ") %>
@@ -18,5 +24,14 @@
     <% end %>
   </div>
 
-  <%= form.submit "Pay #{@insurance.price_cents}" %>
+  <div id="subscription-price">
+    <% if @subscription.discount_code_id.present? && @discount.present? %>
+      <% discounted_price_cents = @insurance.price_cents * (1 - @discount.discount_percentage / 100.0) %>
+      <p>Discounted Price: <%= discounted_price_cents %></p>
+    <% else %>
+      <p>Price: <%= @insurance.price_cents %></p>
+    <% end %>
+  </div>
+
+  <%= form.submit "Pay" %>
 <% end %>

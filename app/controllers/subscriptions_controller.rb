@@ -10,7 +10,9 @@ class SubscriptionsController < ApplicationController
 
   def create
     @insurance = Insurance.find(params[:insurance_id])
-    @subscription = @insurance.subscriptions.new(insurance_params)
+
+    @subscription = @insurance.subscriptions.new(subscription_params)
+
     @subscription.user = current_user
 
     if @subscription.save
@@ -23,7 +25,7 @@ class SubscriptionsController < ApplicationController
 
   private
 
-  def insurance_params
-    params.require(:subscription).permit(:starts_on)
+  def subscription_params
+    params.require(:subscription).permit(:starts_on, :discount_code_value)
   end
 end
