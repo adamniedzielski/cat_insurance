@@ -9,7 +9,7 @@ RSpec.describe "Edit claim status", system: true do
   end
   let!(:company) { Company.create!(name: "Test Company") }
   let!(:insurance) { Insurance.create!(name: "Test Insurance", price_cents: 100_00, company:) }
-  let!(:subscription) { Subscription.create!(user:, insurance:, starts_on: Time.zone.today) }
+  let!(:subscription) { Subscription.create!(user:, insurance:, starts_on: Time.zone.today, end_date: Time.zone.today + 1.year) }
   let!(:claim) { Claim.create!(subscription:, status: "new") }
 
   it "displays success message after updating claim status" do
