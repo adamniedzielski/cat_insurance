@@ -1,9 +1,20 @@
 <h1>Insurances</h1>
+<%= form_with url: insurances_path, method: :get, local: true do %>
+    <div>
+      <label for="min_price">Min Price</label>
+      <%= number_field_tag :min_price, params[:min_price], id: "min_price" %>
+    </div>
+    <div>
+      <label for="max_price">Max Price</label>
+      <%= number_field_tag :max_price, params[:max_price], id: "max_price" %>
+    </div>
+    <%= submit_tag "Search" %>
+  <% end %>
 <p>
     <ul>
         <% @insurances.each do |insurance| %>
             <li>
-                <%= link_to insurance.name, insurance_path(insurance) %>
+                <%= link_to insurance.name, insurance_path(insurance) %> - (Price: <%= insurance.price_cents %>)
             </li>
         <% end %>
     </ul>
