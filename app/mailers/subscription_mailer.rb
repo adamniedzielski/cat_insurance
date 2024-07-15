@@ -5,4 +5,9 @@ class SubscriptionMailer < ApplicationMailer
     @user = params[:user]
     mail(to: @user.email, subject: t("subscriptions.success_mailer_header"))
   end
+
+  def ending_subscription
+    @user = params[:user]
+    mail(to: @user.email, subject: t("subscriptions.ending_mailer_header"))
+  end
 end

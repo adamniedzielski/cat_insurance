@@ -38,6 +38,7 @@ en:
   subscriptions:
       created: Signed up for insurance
       success_mailer_header: Welcome to My Awesome Site
+      ending_mailer_header: Your subscription is ending soon!
       create_claim: Claim was successfully created.
       update_claim: Claim status updated successfully.
   discount_code:
