@@ -1,0 +1,18 @@
+<p>
+  <%= @vet.name %>
+</p>
+<p>
+  Insurance: <%= @insurance.name %>
+</p>
+
+<h2>Make an appointment for this vet</h2>
+
+<%= form_with model: [@vet] do |form| %>
+    <div>
+      <%= form.label :scheduled_appointment %>
+      <%= form.date_field :scheduled_appointment %>
+    </div>
+  
+    <%= form.submit "Book" %>
+  <% end %>
+

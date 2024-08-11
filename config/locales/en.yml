@@ -48,5 +48,7 @@ en:
       created: Company was successfully created.
       deleted: Company was successfully deleted.
       updated: Company was successfully updated.
+  vet:
+    appointment: The appointment has been successfully booked.    
       
        

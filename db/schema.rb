@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_07_08_165016) do
+ActiveRecord::Schema[7.1].define(version: 2024_07_24_162525) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -104,6 +104,15 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_08_165016) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "vets", force: :cascade do |t|
+    t.datetime "scheduled_appointment"
+    t.string "name"
+    t.bigint "insurance_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["insurance_id"], name: "index_vets_on_insurance_id"
+  end
+
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "claims", "subscriptions"
@@ -111,4 +120,5 @@ ActiveRecord::Schema[7.1].define(version: 2024_07_08_165016) do
   add_foreign_key "subscriptions", "discount_codes"
   add_foreign_key "subscriptions", "insurances"
   add_foreign_key "subscriptions", "users"
+  add_foreign_key "vets", "insurances"
 end
