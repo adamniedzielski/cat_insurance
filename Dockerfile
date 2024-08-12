@@ -1,5 +1,5 @@
 FROM ruby:3.3.1-alpine AS dev
-RUN apk add build-base postgresql-dev tzdata git bash
+RUN apk add build-base postgresql-dev postgresql-client tzdata git bash
 WORKDIR /app
 ENV BUNDLE_PATH=/bundle \
     BUNDLE_BIN=/bundle/bin \

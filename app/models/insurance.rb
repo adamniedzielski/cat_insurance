@@ -3,6 +3,7 @@
 class Insurance < ApplicationRecord
   has_many :subscriptions, dependent: :destroy
   has_many :discount_codes, dependent: :destroy
+  has_many :vets, dependent: :destroy
   belongs_to :company
 
   validates :name, presence: true, uniqueness: true
