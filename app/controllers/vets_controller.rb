@@ -11,22 +11,10 @@ class VetsController < ApplicationController
   def show
     @vet = Vet.find(params[:id])
     @insurance = @vet.insurance
-  end
-
-  def update
-    @vets = Vet.find(params[:id])
-    if @vets.update(vet_params)
-      redirect_to vets_path, notice: t("vet.appointment")
-    else
-      render :index
-    end
+    @scheduled_appointment = @vet.scheduled_appointments.build
   end
 
   private
-
-  def vet_params
-    params.require(:vet).permit(:name, :available_date, :scheduled_appointment)
-  end
 
   def authorize_admin!
     return if current_user.is_admin

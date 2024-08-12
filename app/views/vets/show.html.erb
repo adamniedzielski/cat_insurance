@@ -7,10 +7,10 @@
 
 <h2>Make an appointment for this vet</h2>
 
-<%= form_with model: [@vet] do |form| %>
+<%= form_with model: [@vet, @scheduled_appointment] do |form| %>
     <div>
-      <%= form.label :scheduled_appointment %>
-      <%= form.date_field :scheduled_appointment %>
+      <%= form.label :date %>
+      <%= form.date_field :date %>
     </div>
   
     <%= form.submit "Book" %>

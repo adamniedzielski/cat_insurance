@@ -24,7 +24,9 @@ Rails.application.routes.draw do
 
   resources :claims, only: [:index]
 
-  resources :vets, only: %i[index update show]
+  resources :vets, only: %i[index update show] do
+    resources :scheduled_appointments, only: [:create]
+  end
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
