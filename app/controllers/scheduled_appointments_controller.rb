@@ -8,7 +8,7 @@ class ScheduledAppointmentsController < ApplicationController
     @scheduled_appointment.user = current_user
     @scheduled_appointment.vet = Vet.find(params[:vet_id])
     if @scheduled_appointment.save
-      redirect_to vet_path(@scheduled_appointment.vet), notice: t("scheduled_appointment.create")
+      redirect_to vet_path(@scheduled_appointment.vet), notice: t("vet.scheduled_appointment.create")
     else
       redirect_to vets_path
     end

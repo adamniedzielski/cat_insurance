@@ -1,0 +1,10 @@
+<h1><%= @vet.name %>Create Prescription for "<%= @user.email %>" </h1>
+
+<%= form_with model: [@vet, @prescription] do |form| %>
+  <div>
+    <%= form.label :medicine_name, "Medicine Name" %>
+    <%= form.text_field :medicine_name %>
+  </div>
+
+  <%= form.submit "Create Prescription" %>
+<% end %>
