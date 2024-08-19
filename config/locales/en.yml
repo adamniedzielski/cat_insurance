@@ -48,7 +48,8 @@ en:
       created: Company was successfully created.
       deleted: Company was successfully deleted.
       updated: Company was successfully updated.
-  scheduled_appointment:
-    create: The appointment has been successfully booked.    
-      
+  vet:
+    scheduled_appointment:
+      create: The appointment has been successfully booked. 
+    prescription: Prescription was successfully created.
        

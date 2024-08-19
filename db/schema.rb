@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_08_12_162626) do
+ActiveRecord::Schema[7.1].define(version: 2024_08_18_113308) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -77,6 +77,16 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_12_162626) do
     t.index ["name"], name: "index_insurances_on_name", unique: true
   end
 
+  create_table "prescriptions", force: :cascade do |t|
+    t.string "medicine_name"
+    t.bigint "user_id", null: false
+    t.bigint "vet_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_prescriptions_on_user_id"
+    t.index ["vet_id"], name: "index_prescriptions_on_vet_id"
+  end
+
   create_table "scheduled_appointments", force: :cascade do |t|
     t.datetime "date"
     t.bigint "user_id", null: false
@@ -126,6 +136,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_12_162626) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "claims", "subscriptions"
   add_foreign_key "discount_codes", "insurances"
+  add_foreign_key "prescriptions", "users"
+  add_foreign_key "prescriptions", "vets"
   add_foreign_key "scheduled_appointments", "users"
   add_foreign_key "scheduled_appointments", "vets"
   add_foreign_key "subscriptions", "discount_codes"
