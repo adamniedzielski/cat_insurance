@@ -1,0 +1,13 @@
+<h1>Payment Successful</h1>
+
+<p>Your payment was successful!</p>
+
+<h2>Subscription details</h2>
+<p><strong>Insurance Name:</strong> <%= @subscription.insurance.name %></p>
+<p><strong>Price:</strong> <%= number_to_currency(@subscription.insurance.price_cents, unit: "€") %></p>
+<p><strong>Subscription Start Date:</strong> <%= @subscription.starts_on.strftime('%B %d, %Y') %></p>
+<p><strong>Subscription End Date:</strong> <%= @subscription.end_date.strftime('%B %d, %Y') %></p>
+
+<% if @subscription.discount_code %>
+  <p><strong>Discount Code:</strong> <%= @subscription.discount_code.code %></p>
+<% end %>
