@@ -34,6 +34,8 @@ class Subscription < ApplicationRecord
 
   def set_discount_code
     discount = DiscountCode.find_by(code: discount_code_value, insurance_id:)
+    return unless discount
+
     self.discount_code_id = discount&.id
   end
 end
