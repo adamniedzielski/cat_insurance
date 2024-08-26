@@ -29,6 +29,12 @@ class SubscriptionsController < ApplicationController
 
   def redirect_to_payment(insurance)
     Stripe.api_key = ENV.fetch("STRIPE_API_KEY")
+    price = 
+      if @subscription.discount_code_id 
+        insurance.price_cents - (insurance.price_cents*@subscription.discount_code.discount_percentage)/100
+      else
+        insurance.price_cents
+      end
     session = Stripe::Checkout::Session.create({
                                                  line_items: [{
                                                    price_data: {
@@ -36,7 +42,7 @@ class SubscriptionsController < ApplicationController
                                                      product_data: {
                                                        name: insurance.name
                                                      },
-                                                     unit_amount: insurance.price_cents
+                                                     unit_amount: price
                                                    },
                                                    quantity: 1
                                                  }],

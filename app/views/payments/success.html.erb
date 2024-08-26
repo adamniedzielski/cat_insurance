@@ -5,6 +5,11 @@
 <h2>Subscription details</h2>
 <p><strong>Insurance Name:</strong> <%= @subscription.insurance.name %></p>
 <p><strong>Price:</strong> <%= number_to_currency(@subscription.insurance.price_cents, unit: "€") %></p>
+<% if @subscription.discount_code_id.present? %>
+---- with <%= "#{@subscription.discount_code.code} (#{@subscription.discount_code.discount_percentage}%) Discount" %>
+<% else %>
+No Discount Applied
+<% end %>
 <p><strong>Subscription Start Date:</strong> <%= @subscription.starts_on.strftime('%B %d, %Y') %></p>
 <p><strong>Subscription End Date:</strong> <%= @subscription.end_date.strftime('%B %d, %Y') %></p>
 
