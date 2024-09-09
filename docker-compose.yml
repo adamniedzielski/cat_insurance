@@ -10,7 +10,7 @@ services:
       - .env.secret.dev
     stdin_open: true
     tty: true
-    command: bundle exec rails server --binding 0.0.0.0
+    command: bash -c "rm -f /app/tmp/pids/server.pid && bundle exec rails server --binding 0.0.0.0"
     volumes:
       - ".:/app"
       - bundle:/bundle
