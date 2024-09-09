@@ -79,3 +79,5 @@ gem "telegram-bot-ruby"
 gem "active_model_serializers"
 
 gem "stripe"
+
+gem 'whenever', require: false
