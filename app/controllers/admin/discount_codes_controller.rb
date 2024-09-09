@@ -2,7 +2,6 @@
 
 module Admin
   class DiscountCodesController < ApplicationController
-    before_action :authenticate_user!
     before_action :authorize_admin!
 
     def index
@@ -28,12 +27,6 @@ module Admin
 
     def discound_code_params
       params.require(:discount_code).permit(:discount_percentage, :code, :insurance_id)
-    end
-
-    def authorize_admin!
-      return if current_user.is_admin
-
-      redirect_to root_url, notice: t("admin.unauthorized")
     end
   end
 end

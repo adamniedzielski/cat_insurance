@@ -2,7 +2,6 @@
 
 module Admin
   class ClaimsController < ApplicationController
-    before_action :authenticate_user!
     before_action :authorize_admin!
 
     def index
@@ -26,12 +25,6 @@ module Admin
 
     def claim_params
       params.require(:claim).permit(:status)
-    end
-
-    def authorize_admin!
-      return if current_user.is_admin
-
-      redirect_to root_url, notice: t("admin.unauthorized")
     end
   end
 end

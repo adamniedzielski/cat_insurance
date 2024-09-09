@@ -2,7 +2,6 @@
 
 module Admin
   class InsurancesController < ApplicationController
-    before_action :authenticate_user!
     before_action :authorize_admin!
 
     def index
@@ -49,12 +48,6 @@ module Admin
 
     def insurance_params
       params.require(:insurance).permit(:name, :price_cents, :company_id)
-    end
-
-    def authorize_admin!
-      return if current_user.is_admin
-
-      redirect_to root_url, notice: t("admin.unauthorized")
     end
   end
 end

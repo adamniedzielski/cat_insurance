@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
 class PrescriptionsController < ApplicationController
-  before_action :authenticate_user!
-
   def new
     @user = current_user
     @vet = Vet.find(params[:vet_id])
