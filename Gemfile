@@ -80,4 +80,4 @@ gem "active_model_serializers"
 
 gem "stripe"
 
-gem 'whenever', require: false
+gem "whenever", require: false
