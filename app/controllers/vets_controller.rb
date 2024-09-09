@@ -13,12 +13,4 @@ class VetsController < ApplicationController
     @insurance = @vet.insurance
     @scheduled_appointment = @vet.scheduled_appointments.build
   end
-
-  private
-
-  def authorize_admin!
-    return if current_user.is_admin
-
-    redirect_to root_url, notice: t("admin.unauthorized")
-  end
 end
