@@ -1,0 +1,15 @@
+<h1>Admin Subscription</h1>
+<p>
+    <ul>
+        <% @subscription.each do |subscription| %>
+            <li>
+                <%= subscription.insurance.name %>
+                --- <% if subscription.paid %>
+                    Paid
+                <% else %>
+                    No Payment Information
+              <% end %>
+            </li>
+        <% end %>
+    </ul>
+</p>

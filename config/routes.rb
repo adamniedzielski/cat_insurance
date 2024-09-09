@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     resources :insurances
     resources :claims, only: %i[index edit update]
     resources :discount_codes, only: %i[index new create]
+    resources :subscriptions, only: %i[index]
   end
 
   namespace :api do
