@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
 class ScheduledAppointmentsController < ApplicationController
-  before_action :authenticate_user!
-
   def create
     @scheduled_appointment = ScheduledAppointment.new(scheduled_appointment_params)
     @scheduled_appointment.user = current_user
